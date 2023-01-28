@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'war'
+    id "io.freefair.lombok" version "6.3.0"
+}
+
+group 'com.programing'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.8.2'
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    compileOnly group: 'jakarta.platform', name: 'jakarta.jakartaee-api', version: '9.1.0'
+    compileOnly group: 'jakarta.faces', name: 'jakarta.faces-api', version: '4.0.1'
+    implementation group: 'org.primefaces', name: 'primefaces', version: '11.0.0'
+
+}
+
